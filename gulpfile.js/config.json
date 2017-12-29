@@ -1,0 +1,31 @@
+{
+
+	"publicDir": "./public/",
+
+	"markdown": {
+		"concat": {
+			"src": "./source/markdown/*.md",
+			"dest": "./source/markdown/_temp/",
+			"filename": "text.md"
+		},
+		"parse": {
+			"src": "./source/markdown/_temp/*.md",
+			"dest": "./source/html/_temp/"
+		},
+		"watch": "./source/markdown/*.md"
+	},
+
+	"html": {
+		"src": "./source/html/index.html",
+		"templates": "./source/html",
+		"dest": "./public/",
+		"meta": "./source/data/meta.json",
+		"watch": "./source/html/*.html"
+	},
+
+	"css": {
+		"src": "./source/stylus/style.styl",
+		"dest": "./public/assets/css/",
+		"watch": "./source/stylus/**/**/*.styl"
+	}
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ titleFull }}</title>
+	<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+	<header class="header" aria-label="Content" role="banner">
+
+		<h1>{{ titleFull }}</h1>
+		<p class="abstract">{{ abstract }}</p>
+
+	</header>
+
+	<main class="main">
+		<article class="post">
+			{% include "./_temp/text.html" %}
+		</article>
+	</main>
+
+	<footer class="footer" role="contentinfo">
+
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+# ignore generated files
+public
+
+# Ignore caches and logs
+.sass-cache
+.asset-cache/
+.bundle/
+Gemfile.lock
+.ruby-version
+
+# Ignore junk files
+.DS_Store
+
+# Ignore npm stuff
+node_modules/
