@@ -1,0 +1,58 @@
+.toc {
+	overflow-y: auto;
+}
+
+.toc>ul {
+	overflow: hidden;
+	position: relative;
+}
+
+.toc>ul li {
+	list-style: none;
+}
+
+.toc-list {
+	margin: 0;
+	padding-left: 0;
+	list-style-type: none;
+}
+
+a.toc-link {
+	color: currentColor;
+	height: 100%;
+	font-size: 0.65rem;
+	font-family: $sans;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: $gray-dark;
+	font-weight: 200;
+}
+
+.is-collapsible {
+	max-height: 1000px;
+	overflow: hidden;
+	transition: all 300ms ease-in-out;
+}
+
+.is-collapsed {
+	max-height: 0;
+}
+
+.is-position-fixed {
+	position: fixed !important;
+	top: 0;
+}
+
+a.is-active-link {
+	font-weight: 600;
+	color: $text-color;
+}
+
+@supports (position:sticky)
+	.js-toc
+		position sticky
+		top 35%
+
+.js-toc li
+	line-height 1
+	margin-bottom $spacing*0.5

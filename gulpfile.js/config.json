@@ -3,16 +3,22 @@
 	"publicDir": "./public/",
 
 	"markdown": {
-		"concat": {
-			"src": "./source/markdown/*.md",
+		"concatText": {
+			"src": "./source/markdown/text/*.md",
 			"dest": "./source/markdown/_temp/",
-			"filename": "text.md"
+			"filename": "paper-text.md"
+		},
+		"concatFooter": {
+			"src": "./source/markdown/footer/*.md",
+			"dest": "./source/markdown/_temp/",
+			"filename": "paper-footer.md"
 		},
 		"parse": {
 			"src": "./source/markdown/_temp/*.md",
 			"dest": "./source/html/_temp/"
 		},
-		"watch": "./source/markdown/*.md"
+		"watch": "./source/markdown/**/*.md",
+		"watchIgnore": "!source/markdown/_temp/*.md"
 	},
 
 	"html": {
@@ -20,12 +26,31 @@
 		"templates": "./source/html",
 		"dest": "./public/",
 		"meta": "./source/data/meta.json",
-		"watch": "./source/html/*.html"
+		"watch": "./source/html/index.html"
+	},
+
+	"data" : {
+		"watch": "./source/data/*.json"
 	},
 
 	"css": {
 		"src": "./source/stylus/style.styl",
 		"dest": "./public/assets/css/",
 		"watch": "./source/stylus/**/**/*.styl"
+	},
+
+	"js": {
+		"entry": "./source/javascript/main.js",
+		"src": "./source/javascript/*.js",
+		"bundle": "bundle.js",
+		"bundleMin": "bundle.min.js",
+		"watch": "./source/javascript/**/*.js",
+		"dest": "./public/assets/js/"
+	},
+
+	"include": {
+		"src": "./source/include/**/**/**/**",
+		"dest": "./public/",
+		"watch": "./source/include/**/**/**/**"
 	}
 }

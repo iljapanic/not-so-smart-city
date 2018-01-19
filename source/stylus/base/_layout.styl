@@ -5,12 +5,27 @@
 	padding $spacing*2 $spacing*0.25
 
 .main
-	max-width $main
-	margin-left auto
-	margin-right auto
-	padding $spacing $spacing*0.5
+	padding 0 $spacing*0.25 $spacing*2 $spacing*0.25
 	overflow-wrap break-word
-  word-wrap break-word
+	word-wrap break-word
+
+	+large()
+		max-width $wrap
+		margin-left auto
+		margin-right auto
+
+		display flex
+
+		.main__main
+			width $main
+
+		.main__sidebar
+			width ($wrap - $main)
+
 
 .footer
-	overflow hidden
+	border-top $separator
+	padding $spacing $spacing*0.25
+	max-width $wrap
+	margin-left auto
+	margin-right auto

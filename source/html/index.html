@@ -1,27 +1,146 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{ titleFull }}</title>
-	<link rel="stylesheet" href="/assets/css/style.css">
+
+	<title>{{ title }}</title>
+	<meta name="description" content="{{ description }}">
+
+	{# Open Graph #}
+	<meta property="og:url" content="{{ permalink }}">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="{{ title }}">
+	<meta property="og:image" content="./assets/img/cover.png">
+	<meta property="og:description" content="{{ description }}">
+	<meta property="article:author" content="{% for author in authors %}{% if loop.length == 1 %}{{ author.name }}{% elseif loop.last %}{{ author.name }}{% else %}{{ author.name }},{% endif %}{% endfor %}">
+
+	{# Twitter #}
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="{{ authors[0].twitter }}">
+	<meta name="twitter:url" content="{{ permalink }}">
+	<meta name="twitter:title" content="{{ title }}">
+	<meta name="twitter:description" content="{{ description }}">
+	<meta name="twitter:image" content="./assets/img/cover.png">
+
+
+	<link rel="stylesheet" href="./assets/css/style.css">
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon.png">
+
 </head>
 <body>
 
 	<header class="header" aria-label="Content" role="banner">
 
 		<h1>{{ titleFull }}</h1>
-		<p class="abstract">{{ abstract }}</p>
+
+		{% if abstract %}
+			<div class="abstract">
+				<p>{{ abstract }}</p>
+			</div>
+		{% endif %}
+
+		{% if keywords %}
+			<div class="keywords">
+				{{ keywords }}
+			</div>
+	  {% endif %}
+
+		<div class="meta">
+			<table>
+				<tr>
+			    <th>Authors</th>
+			    <th>Affiliations</th>
+			    <th>Published</th>
+			    <th>Length</th>
+			    <th>Reading time</th>
+				</tr>
+				<tr>
+					<td>
+						<ul class="authors">
+							{% for author in authors %}
+								<li><a href="{{author.web}}" target="_blank" itemprop="author" itemscope itemtype="http://schema.org/Person" rel="author">{{author.name}}</a></li>
+							{% endfor %}
+						</ul>
+					</td>
+					<td>
+						<ul class="organizations">
+							{% for author in authors %}
+								<li>{{author.organization}}</li>
+							{% endfor %}
+						</ul>
+					</td>
+					<td><span itemprop="datePublished">{{ published }}</span></td>
+					</td>
+					<td><span id="word-count" class="word-count"></span> words</td>
+					<td><span id="reading-time" class="reading-gime"></span> minutes</td>
+				</tr>
+			</table>
+		</div>
 
 	</header>
 
-	<main class="main">
-		<article class="post">
-			{% include "./_temp/text.html" %}
-		</article>
+	<main class="main" itemscope itemtype="http://schema.org/Article">
+
+		<div class="main__sidebar">
+			<div class="js-toc"></div>
+		</div>
+
+		<div class="main__main">
+
+			<article class="article js-toc-content">
+
+				<div id="main-text" class="article__text" itemprop="articleBody">
+					{% include "./_temp/paper-text.html" %}
+				</div>
+
+				<footer class="article__footer">
+					{% include "./_temp/paper-footer.html" %}
+				</footer>
+
+			</article>
+
+		</div>
+
 	</main>
 
 	<footer class="footer" role="contentinfo">
+		<div class="citation">
+			<div>APA-style reference</div>
+			<code class="apa">
+				{% for author in authors %}
+					{% if loop.length == 1 %}
+						{{ author.nameAPA }} ({{ year }}).
+					{% elseif loop.last %}
+						{{ author.nameAPA }} ({{ year }}).
+					{% else %}
+						{{ author.nameAPA }},
+					{% endif %}
+				{% endfor %}
+				{{ titleFull }}. Retrieved <span id="current-date"></span>, from {{ permalink }}
+			</code>
+		</div>
 
+		<div class="reference">
+			<p>Originally published: <span>{{ published }}</span></p>
+			<p>Last updated on: <span>{{ updated }}</span></p>
+			<p>Authored by: {% for author in authors %}
+					{% if loop.length == 1 %}
+						<span>{{ author.name }} &lt;<a href="mailto:{{author.email}}" title="Email {{author.name}}">{{ author.email }}</a>&gt;</span>
+					{% elseif loop.last %}
+						<span>{{ author.name }} &lt;<a href="mailto:{{author.email}}" title="Email {{author.name}}">{{ author.email }}</a>&gt;</span>
+					{% else %}
+						<span>{{ author.name }} &lt;<a href="mailto:{{author.email}}" title="Email {{author.name}}">{{ author.email }}</a>&gt;,</span>
+					{% endif %}
+				{% endfor %}
+			</p>
+			<p>Permalink: <span><a href="{{ permalink }}" target="_blank">{{ permalink }}</a></span></p>
+		</div>
+
+		<div class="colophon">
+			<p>Generated using <a href="https://github.com/iljapanic/PaperDown" target="_blank">PaperDown</a></p>
+		</div>
 	</footer>
+
+	<script type="text/javascript" src="./assets/js/bundle.js"></script>
 
 </body>
 </html>

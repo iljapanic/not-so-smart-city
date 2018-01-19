@@ -1,0 +1,54 @@
+.abstract p
+	font-size 1.2rem
+	line-height 1.55
+	margin-top 0
+
+.keywords
+	margin-top $spacing*0.75
+	font-size 1.1rem
+	line-height 1.5
+	font-style italic
+
+.meta
+	margin-top $spacing*1.5
+	padding $spacing 0
+	font-family $sans
+	border-top $separator
+	border-bottom $separator
+
+	table
+		// background-color rgba(pink, 0.15)
+		margin 0
+		width 100%
+	th
+		text-align left
+		letter-spacing $letter-spacing
+		// border 1px solid blue
+		// width 20%
+		color $gray
+		font-size 0.6rem
+		font-weight 600
+		text-transform uppercase
+	td
+		width 18%
+		vertical-align top
+		font-size 0.8rem
+
+	td:nth-of-type(1)
+		// background-color red
+		width 18%
+
+	td:nth-of-type(2)
+		width 28%
+		// background-color blue
+
+.meta .authors,
+.meta .organizations
+	list-style-type none
+	margin 0
+	padding 0
+	a
+		text-decoration none
+	li
+		margin 0
+		line-height 1.75
