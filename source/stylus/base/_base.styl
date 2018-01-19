@@ -7,9 +7,18 @@
 
 html
 	font-family $serif
-	font-size ($base-font-size / 16 * 100%)
+	font-size ($base-font-size / 16 * 70%)
 	-webkit-font-smoothing antialiased
 	text-size-adjust auto
+
+	+medium()
+		font-size ($base-font-size / 16 * 95%)
+
+	// +large()
+	// 	font-size ($base-font-size / 16 * 100%)
+
+	+xlarge()
+		font-size ($base-font-size / 16 * 100%)
 
 // headings
 
@@ -19,16 +28,18 @@ h3,
 h4,
 h5,
 h6
-	// font-family $sans
 	margin-top $leading
 	margin-bottom 0
 	line-height $leading
 
 h1
-	font-size $h1-size
-	line-height $h1-line-height
+	font-size $h1-size-mobile
+	line-height $h1-line-height-mobile
 	margin-top (1 * $leading)
 	margin-bottom (0.5 * $leading)
+	+large()
+		font-size $h1-size
+		line-height $h1-line-height
 
 h2
 	font-size $h2-size

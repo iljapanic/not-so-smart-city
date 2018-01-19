@@ -4,8 +4,11 @@
 	line-height 1.5
 	padding $spacing*0.15 $spacing*0.25
 	border-radius $radius
-	font-size 0.75rem
+	font-size 0.6rem
 	margin-top $spacing*0.5
+
+	+large()
+		font-size 0.75rem
 
 
 .reference,
@@ -15,8 +18,11 @@
 .reference p,
 .colophon p
 	margin-top $spacing*0.15
-	font-size 0.8rem
+	font-size 0.7rem
 	color $gray
+
+	+large()
+		font-size 0.8rem
 
 	span
 		font-weight bold

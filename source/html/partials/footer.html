@@ -1,0 +1,37 @@
+<footer class="footer" role="contentinfo">
+	<div class="citation">
+		<div>APA-style reference</div>
+		<code class="apa">
+			{% for author in authors %}
+				{% if loop.length == 1 %}
+					{{ author.nameAPA }} ({{ year }}).
+				{% elseif loop.last %}
+					{{ author.nameAPA }} ({{ year }}).
+				{% else %}
+					{{ author.nameAPA }},
+				{% endif %}
+			{% endfor %}
+			{{ titleFull }}. Retrieved <span id="current-date"></span>, from {{ permalink }}
+		</code>
+	</div>
+
+	<div class="reference">
+		<p>Originally published: <span>{{ published }}</span></p>
+		<p>Last updated on: <span>{{ updated }}</span></p>
+		<p>Authored by: {% for author in authors %}
+				{% if loop.length == 1 %}
+					<span>{{ author.name }} &lt;<a href="mailto:{{author.email}}" title="Email {{author.name}}">{{ author.email }}</a>&gt;</span>
+				{% elseif loop.last %}
+					<span>{{ author.name }} &lt;<a href="mailto:{{author.email}}" title="Email {{author.name}}">{{ author.email }}</a>&gt;</span>
+				{% else %}
+					<span>{{ author.name }} &lt;<a href="mailto:{{author.email}}" title="Email {{author.name}}">{{ author.email }}</a>&gt;,</span>
+				{% endif %}
+			{% endfor %}
+		</p>
+		<p>Permalink: <span><a href="{{ permalink }}" target="_blank">{{ permalink }}</a></span></p>
+	</div>
+
+	<div class="colophon">
+		<p>Generated using <a href="https://github.com/iljapanic/PaperDown" target="_blank">PaperDown</a></p>
+	</div>
+</footer>

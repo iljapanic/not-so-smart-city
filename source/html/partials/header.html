@@ -1,0 +1,63 @@
+<header class="header" aria-label="Content" role="banner">
+
+	<h1>{{ titleFull }}</h1>
+
+	{% if abstract %}
+		<div class="abstract">
+			<p>{{ abstract }}</p>
+		</div>
+	{% endif %}
+
+	{% if keywords %}
+		<div class="keywords">
+			{{ keywords }}
+		</div>
+  {% endif %}
+
+	<div class="meta">
+		<table>
+
+			<!-- table header -->
+			<thead>
+				<tr>
+			    <th>Authors</th>
+			    <th>Affiliations</th>
+			    <th>Published</th>
+			    <th>Length</th>
+			    <th>Reading time</th>
+				</tr>
+			</thead>
+
+			<!-- table body -->
+			<tbody>
+				<tr>
+					<!-- author -->
+					<td data-label="Authors">
+						<ul class="authors">
+							{% for author in authors %}
+								<li><a href="{{author.web}}" target="_blank" itemprop="author" itemscope itemtype="http://schema.org/Person" rel="author">{{author.name}}</a></li>
+							{% endfor %}
+						</ul>
+					</td>
+					<!-- affiliation -->
+					<td data-label="Affiliations">
+						<ul class="organizations">
+							{% for author in authors %}
+								<li>{{author.organization}}</li>
+							{% endfor %}
+						</ul>
+					</td>
+					<!-- published -->
+					<td data-label="Published"><span itemprop="datePublished">{{ published }}</span></td>
+					</td>
+					<!-- length -->
+					<td data-label="Length"><span id="word-count" class="word-count"></span> words</td>
+					<!-- reading time -->
+					<td data-label="Reading time"><span id="reading-time" class="reading-gime"></span> minutes</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+
+</header>

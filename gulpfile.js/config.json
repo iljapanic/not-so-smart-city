@@ -26,7 +26,8 @@
 		"templates": "./source/html",
 		"dest": "./public/",
 		"meta": "./source/data/meta.json",
-		"watch": "./source/html/index.html"
+		"watch": "./source/html/**/*.html",
+		"watchIgnore": "!source/html/_temp/*.html"
 	},
 
 	"data" : {

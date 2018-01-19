@@ -48,10 +48,19 @@ a.is-active-link {
 	color: $text-color;
 }
 
-@supports (position:sticky)
+
+.js-toc
+	display none
+
++large()
 	.js-toc
-		position sticky
-		top 35%
+		display block
+
+@supports (position:sticky)
+	+large()
+		.js-toc
+			position sticky
+			top 35%
 
 .js-toc li
 	line-height 1

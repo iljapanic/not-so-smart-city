@@ -1,19 +1,25 @@
-.header
-	max-width $header
+.container
+	max-width $wrap
 	margin-left auto
 	margin-right auto
-	padding $spacing*2 $spacing*0.25
+	padding 0 $spacing*0.5
+	+large()
+		padding 0 $spacing
+		max-width $wrap-small
+	+xlarge()
+		max-width $wrap
+
+.header
+	padding $spacing*0.5 0 $spacing 0
+	+large()
+		padding $spacing*2 0
 
 .main
-	padding 0 $spacing*0.25 $spacing*2 $spacing*0.25
+	padding-bottom $spacing*2
 	overflow-wrap break-word
 	word-wrap break-word
 
 	+large()
-		max-width $wrap
-		margin-left auto
-		margin-right auto
-
 		display flex
 
 		.main__main
@@ -25,7 +31,6 @@
 
 .footer
 	border-top $separator
-	padding $spacing $spacing*0.25
-	max-width $wrap
-	margin-left auto
-	margin-right auto
+	padding $spacing*1.5 0 $spacing 0
+	+large()
+		padding $spacing*1.5 0

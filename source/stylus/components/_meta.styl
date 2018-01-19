@@ -1,13 +1,19 @@
 .abstract p
-	font-size 1.2rem
-	line-height 1.55
+	font-size 1.1rem
+	line-height 1.45
 	margin-top 0
+	+large()
+		font-size 1.2rem
+		line-height 1.55
 
 .keywords
 	margin-top $spacing*0.75
-	font-size 1.1rem
-	line-height 1.5
+	font-size 0.9rem
+	line-height 1.75
 	font-style italic
+	+large()
+		font-size 1.1rem
+		line-height 1.5
 
 .meta
 	margin-top $spacing*1.5
@@ -17,30 +23,72 @@
 	border-bottom $separator
 
 	table
-		// background-color rgba(pink, 0.15)
 		margin 0
 		width 100%
+
+	thead
+		+small()
+			hidden()
+
 	th
 		text-align left
 		letter-spacing $letter-spacing
-		// border 1px solid blue
-		// width 20%
 		color $gray
 		font-size 0.55rem
 		font-weight bold
 		text-transform uppercase
+
+	tr
+		+small()
+			display flex
+			flex-wrap wrap
+
 	td
-		width 18%
 		vertical-align top
 		font-size 0.7rem
+		line-height 1.5
+
+		+small()
+			display block
+			margin-bottom $spacing
+			&:nth-of-type(1)
+				order 1
+				width 60%
+			&:nth-of-type(2)
+				order 3
+				width 60%
+			&:nth-of-type(3)
+				order 5
+				width 60%
+				margin-bottom 0
+			&:nth-of-type(4)
+				order 2
+				width 40%
+			&:nth-of-type(5)
+				order 4
+				width 40%
+			&:before
+				display block
+				margin-bottom $spacing*0.15
+				content attr(data-label)
+				letter-spacing $letter-spacing
+				color $gray
+				font-size 0.55rem
+				font-weight bold
+				text-transform uppercase
+
+		+medium()
+			width 18%
+			display table-cell
 
 	td:nth-of-type(1)
-		// background-color red
-		width 18%
+		+medium()
+			width 18%
 
 	td:nth-of-type(2)
-		width 28%
-		// background-color blue
+		+medium()
+			width 28%
+
 
 .meta .authors,
 .meta .organizations
