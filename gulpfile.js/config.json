@@ -53,5 +53,11 @@
 		"src": "./source/include/**/**/**/**",
 		"dest": "./public/",
 		"watch": "./source/include/**/**/**/**"
+	},
+
+	"images": {
+		"src": "./source/images/**/**/*.{png,gif,svg,jpeg,jpg,JPG,JPEG}",
+		"dest": "./public/images/",
+		"watch": "./source/images/**/**/*.{png,gif,svg,jpeg,jpg,JPG,JPEG}"
 	}
 }

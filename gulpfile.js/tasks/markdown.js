@@ -1,9 +1,8 @@
 const gulp = require('gulp');
-const sequence = require('gulp-sequence');
+const sequence = require('run-sequence');
 
-const markdownTask = function(cb) {
-	sequence('markdown-concatText', 'markdown-concatFooter', 'markdown-parse', cb);
+const markdownTask = function(callback) {
+	sequence('markdown-concat', 'markdown-parse', callback);
 }
 
 gulp.task('markdown', markdownTask);
-module.exports = markdownTask;

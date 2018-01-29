@@ -6,7 +6,7 @@ const handleErrors = require('../lib/handleErrors');
 const path = require('path');
 
 const includeTask = function () {
-	gulp.src(config.include.src, {dot: true})
+	return gulp.src(config.include.src, {dot: true})
 		.pipe(gulp.dest(config.include.dest))
 		.pipe(browserSync.stream())
 }

@@ -17,7 +17,7 @@
 
 	<div class="reference">
 		<p>Originally published: <span>{{ published }}</span></p>
-		<p>Last updated on: <span>{{ updated }}</span></p>
+		<p>Site last updated on: <span>{{ updated }}</span></p>
 		<p>Authored by: {% for author in authors %}
 				{% if loop.length == 1 %}
 					<span>{{ author.name }} &lt;<a href="mailto:{{author.email}}" title="Email {{author.name}}">{{ author.email }}</a>&gt;</span>

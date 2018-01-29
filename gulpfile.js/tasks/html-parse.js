@@ -8,7 +8,7 @@ const nunjucks = require('gulp-nunjucks');
 const plumber = require('gulp-plumber');
 
 const htmlParseTask = function() {
-	gulp.src(config.html.src)
+	return gulp.src(config.html.src)
 		.pipe(plumber())
 		.pipe(data(function(file) {
 			return JSON.parse(fs.readFileSync(config.html.meta));
@@ -21,4 +21,3 @@ const htmlParseTask = function() {
 }
 
 gulp.task('html-parse', htmlParseTask);
-module.exports = htmlParseTask;

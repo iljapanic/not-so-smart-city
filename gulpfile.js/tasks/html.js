@@ -1,9 +1,8 @@
 const gulp = require('gulp');
-const sequence = require('gulp-sequence');
+const sequence = require('run-sequence');
 
-const htmlTask = function(cb) {
-	sequence('markdown', 'html-parse', cb);
+const htmlTask = function(callback) {
+	sequence('markdown', 'html-parse', callback);
 }
 
 gulp.task('html', htmlTask);
-module.exports = htmlTask;

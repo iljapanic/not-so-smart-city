@@ -28,7 +28,7 @@ const processors = [
 ];
 
 const cssTask = function() {
-	gulp.src(config.css.src)
+	return gulp.src(config.css.src)
 		.pipe(sourcemaps.init())
 		.pipe(stylus())
 		.on('error', handleErrors)
