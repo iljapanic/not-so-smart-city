@@ -1,8 +1,8 @@
 {
-  "name": "PaperDown",
+  "name": "Not So Smart City",
   "version": "1.0.0",
-  "description": "Gulp workflow for generating academic papers from markdown",
-  "author": "Ilja Panic <hello@iljapanic.com>",
+  "description": "A paper critiquing existing approaches to smart city design.",
+  "author": "Ilja Panic <ilja@iljapanic.com>",
   "contributors": [
     {
       "name": "Ilja Panic",
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/iljapanic/PaperDown"
+    "url": "https://github.com/iljapanic/not-so-smart-city"
   },
   "devDependencies": {
     "browser-sync": "^2.22.0",
